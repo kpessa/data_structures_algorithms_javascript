@@ -14,7 +14,8 @@ class LinkedList {
   // create a new node
   constructor(value = null) {
     checkInput(value);
-    this.head = this.tail = new Node(value);
+    if (value) this.head = this.tail = new Node(value);
+    else this.head = this.tail = null;
     value ? (this.length = 1) : (this.length = 0);
   }
   to_a() {

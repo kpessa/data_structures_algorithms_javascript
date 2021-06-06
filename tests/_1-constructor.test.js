@@ -8,10 +8,18 @@ test('Normal Input: <int>: 5', () => {
   expect(ll.head.next).toBe(null);
   expect(ll.length).toBe(1);
 });
+
 test('Normal Input: <int>: 5, match Node objects?', () => {
   const ll = new LinkedList(5);
   expect(ll.head).toMatchObject(new Node(5));
   expect(ll.tail).toMatchObject(new Node(5));
+});
+
+test('Empty Input:', () => {
+  const ll = new LinkedList();
+  expect(ll.head).toBe(null);
+  expect(ll.tail).toBe(null);
+  expect(ll.length).toBe(0);
 });
 
 test('Faulty Input: <str>: "string"', () => {
