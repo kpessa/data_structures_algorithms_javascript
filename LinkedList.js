@@ -1,5 +1,7 @@
+const { checkForInteger, checkInput } = require('./utils');
+
 class Node {
-  constructor(value, next) {
+  constructor(value = null) {
     this.value = value;
     this.next = null;
   }
@@ -10,9 +12,10 @@ class Node {
 
 class LinkedList {
   // create a new node
-  constructor(value) {
+  constructor(value = null) {
+    checkInput(value);
     this.head = this.tail = new Node(value);
-    this.length = 1;
+    value ? (this.length = 1) : (this.length = 0);
   }
   to_a() {
     if (!this.head) return [];
@@ -79,4 +82,4 @@ class LinkedList {
   insert(index, value) {}
 }
 
-module.exports = LinkedList;
+module.exports = { Node, LinkedList };
